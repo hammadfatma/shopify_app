@@ -1,0 +1,1 @@
+enum CollectionsUtils { ads, categories , products }
