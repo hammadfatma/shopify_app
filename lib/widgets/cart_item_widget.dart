@@ -5,12 +5,14 @@ class CartItemWidget extends StatefulWidget {
   const CartItemWidget(
       {super.key,
       required this.imagePath,
+      required this.quantity,
       required this.nameTxt,
       required this.typeTxt,
       required this.priceTxt});
   final String imagePath;
   final String nameTxt, typeTxt;
-  final double priceTxt;
+  final String priceTxt;
+  final int quantity;
 
   @override
   State<CartItemWidget> createState() => _CartItemWidgetState();
@@ -82,7 +84,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       child: Align(
                         alignment: Alignment.topLeft,
                         child: Text(
-                          '\$${widget.priceTxt.toStringAsFixed(2)}',
+                          '\$${widget.priceTxt}',
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 15,
@@ -93,7 +95,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                     ),
                     Row(
                       children: [
-                        InkWell(
+                        GestureDetector(
                           onTap: () {
                             setState(() {
                               value--;
@@ -118,12 +120,12 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Text(
-                            '${value}',
+                            '${widget.quantity}',
                             style: TextStyle(
                                 fontSize: 15, color: Color(0xff727c8e)),
                           ),
                         ),
-                        InkWell(
+                        GestureDetector(
                           onTap: () {
                             setState(() {
                               value++;

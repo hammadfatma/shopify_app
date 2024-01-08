@@ -7,6 +7,7 @@ import '../utils/collections.dart';
 
 class ProductsProvider {
   List<ProductsModel> products = [];
+
   Future<List<ProductsModel>> getProducts(BuildContext context,
       {int? limit}) async {
     try {
@@ -51,6 +52,38 @@ class ProductsProvider {
       }
       debugPrint('Error : $e');
       return [];
+    }
+  }
+
+  Future<ProductsModel?> getProductsById({required String productId}) async {
+    try {
+      final DocumentSnapshot<Map<String, dynamic>> productsSnapshot;
+      productsSnapshot = await FirebaseFirestore.instance
+          .collection(CollectionsUtils.products.name)
+          .doc(productId)
+          .get();
+      if (productsSnapshot.exists) {
+        return ProductsModel(
+            id: productsSnapshot.id,
+            categoryId: productsSnapshot.get('categoryId'),
+            colors: productsSnapshot.get('colors') != null
+                ? List<String>.from(
+                    productsSnapshot.get('colors').map((e) => e))
+                : [],
+            sizes: productsSnapshot.get('sizes') != null
+                ? List<String>.from(productsSnapshot.get('sizes').map((e) => e))
+                : [],
+            name: productsSnapshot.get('name'),
+            image: productsSnapshot.get('image'),
+            price: productsSnapshot.get('price') is int
+                ? (productsSnapshot.get('price') as int).toDouble()
+                : productsSnapshot.get('price'));
+      } else {
+        return null;
+      }
+    } catch (e) {
+      debugPrint('Error : $e');
+      return null;
     }
   }
 }

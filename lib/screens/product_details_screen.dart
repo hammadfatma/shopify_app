@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopify_app/providers/cart_provider.dart';
-import 'package:shopify_app/screens/cart_screen.dart';
 import 'package:shopify_app/utils/constants.dart';
 import 'package:shopify_app/widgets/custom_button_icon.dart';
 import 'package:shopify_app/widgets/selected_color_widget.dart';
@@ -22,7 +21,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   void initState(){
     Provider.of<CartProvider>(context,listen: false).createItemInstance();
-    super.initState();
+    super.initState(); // every time open details create instance of cartItem was empty but adding was in firebase
   }
   @override
   Widget build(BuildContext context) {
@@ -126,8 +125,27 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   ),
                   SizedBox(height: 8),
                   SelectedColor(productsModel: widget.product,selectedColorCallBack: (color){
+                    String colorString = color.toString();
+                    if(colorString == 'Color(0xffed5199)'){
+                      colorString = 'Brilliant Rose';
+                    }else if(colorString == 'Color(0xffff8c69)'){
+                      colorString = 'Salmon';
+                    }else if(colorString == 'Color(0xff67b5f7)'){
+                      colorString = 'Malibu';
+                    }
+                    else if(colorString == 'Color(0xffffffff)'){
+                      colorString = 'White';
+                    }
+                    else if(colorString == 'Color(0xffc9c9c9)'){
+                      colorString = 'Silver';
+                    }
+                    else if(colorString == 'Color(0xff3e3a3a)'){
+                      colorString = 'Mine Shaft';
+                    }else{
+                      colorString = 'No Found';
+                    }
                     print("============${color.toString()}========");
-                    Provider.of<CartProvider>(context, listen: false).cartItem?.selectColor = color.toString();
+                    Provider.of<CartProvider>(context, listen: false).cartItem?.selectColor = colorString;
                   },),
                   SizedBox(height: 8),
                   Align(
@@ -158,13 +176,13 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           // uuid to generate random id and not repeat any more
                           Provider.of<CartProvider>(context,listen: false).cartItem?.itemId = Uuid().v4();
                           Provider.of<CartProvider>(context,listen: false).onAddItemToCart(context: context);
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CartScreen(
-                                  product: widget.product,
-                                ),
-                              ));
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //       builder: (context) => CartScreen(
+                          //         product: widget.product,
+                          //       ),
+                          //     ));
                         },
                         width: 165,
                       ),

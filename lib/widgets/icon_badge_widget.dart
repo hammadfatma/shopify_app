@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopify_app/screens/cart_screen.dart';
 import 'package:shopify_app/utils/constants.dart';
 
 import '../providers/cart_provider.dart';
@@ -15,7 +16,9 @@ class IconBadgeWidget extends StatelessWidget {
     return Stack(
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>CartScreen()));
+          },
           icon: Transform.flip(
             flipX: fl,
             child: Icon(
@@ -36,7 +39,7 @@ class IconBadgeWidget extends StatelessWidget {
                   for (Map<String, dynamic> item
                       in snapshot.data?.data()?['items']) {
                     quantity = quantity + (item['quantity'] as int);
-                  }
+                  } // first data meaning to document , second data meaning to what searching in items list
                   return Badge(
                     smallSize: 15,
                     backgroundColor: kPrimaryColor,
