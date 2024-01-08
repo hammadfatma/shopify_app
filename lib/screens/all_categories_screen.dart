@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shopify_app/screens/all_products_screen.dart';
 import 'package:shopify_app/utils/constants.dart';
 import 'package:shopify_app/widgets/categories_circle_widget.dart';
+import 'package:shopify_app/widgets/custom_appbar_widget.dart';
 
 import '../providers/categories_provider.dart';
 
@@ -12,23 +13,7 @@ class AllCategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBackColor,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.close_outlined,
-              size: 18,
-              color: kPrimaryColor,
-            ),
-          ),
-        ],
-      ),
+      appBar: const CustomAppBarWidget(),
       body: Column(
         children: [
           Padding(

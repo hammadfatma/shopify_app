@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shopify_app/screens/cart_screen.dart';
 import 'package:shopify_app/screens/part_home_screen.dart';
 import 'package:shopify_app/utils/constants.dart';
 import '../widgets/icon_badge_widget.dart';
@@ -22,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> widgetOptions = [
     PartHomeScreen(),
     Text('Search Screen'),
-    CartScreen(),
     Text('Profile Screen'),
     Text('More Screen'),
   ];
@@ -34,11 +32,11 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
-          // IconBadgeWidget(
-          //   txt: '5',
-          //   con: Icons.maps_ugc_outlined,
-          //   fl: true,
-          // ),
+          IconBadgeWidget(
+            txt: '7',
+            con: Icons.shopping_cart_outlined,
+            fl: false,
+          ),
           // IconBadgeWidget(
           //   txt: '10',
           //   con: Icons.notifications_none_outlined,
@@ -82,13 +80,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   Icons.search_outlined,
                 ),
                 label: 'Search'),
-            BottomNavigationBarItem(
-                icon: IconBadgeWidget(
-                  txt: '3',
-                  con: Icons.shopping_cart_outlined,
-                  fl: false,
-                ),
-                label: 'Cart'),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person_outlined,

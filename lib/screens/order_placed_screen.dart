@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopify_app/widgets/custom_appbar_widget.dart';
 import 'package:shopify_app/widgets/custom_button_icon.dart';
 
 import '../utils/constants.dart';
@@ -10,23 +11,7 @@ class OrderPlacedScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBackColor,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.close_outlined,
-              size: 18,
-              color: kPrimaryColor,
-            ),
-          ),
-        ],
-      ),
+      appBar: const CustomAppBarWidget(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopify_app/screens/product_details_screen.dart';
 import 'package:shopify_app/utils/constants.dart';
+import 'package:shopify_app/widgets/custom_appbar_widget.dart';
 import '../providers/products_provider.dart';
 import '../widgets/products_card_widget.dart';
 
@@ -13,23 +14,7 @@ class AllProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBackColor,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.close_outlined,
-              size: 18,
-              color: kPrimaryColor,
-            ),
-          ),
-        ],
-      ),
+      appBar: const CustomAppBarWidget(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
