@@ -10,11 +10,49 @@ class CartProvider {
     cartItem = CartItem();
   }
 
-  Stream<DocumentSnapshot<Map<String, dynamic>>> get cartStream =>
-      FirebaseFirestore.instance
-          .collection('carts')
-          .doc(FirebaseAuth.instance.currentUser?.email ?? '')
-          .snapshots(); //
+  Stream<
+      DocumentSnapshot<
+          Map<String, dynamic>>> get cartStream => FirebaseFirestore.instance
+      .collection('carts')
+      .doc(FirebaseAuth.instance.currentUser?.email ?? '')
+      .snapshots(); // by opening this stream We can do without notify listener
+
+  // we can update not remove array 'items'
+  void onRemoveItemFromCart(
+      {required BuildContext context,
+      required String itemId,
+      required CartModel cart}) async {
+    try {
+      var result = await QuickAlert.show(
+          context: context,
+          type: QuickAlertType.confirm,
+          onConfirmBtnTap: () => Navigator.pop(context, true));
+      if (result ?? false) {
+        cart.items?.removeWhere((element) => element.itemId == itemId);
+        await FirebaseFirestore.instance
+            .collection('carts')
+            .doc(FirebaseAuth.instance.currentUser?.email ?? '')
+            .update(cart.toJson());
+        if (context.mounted) {
+          Navigator.pop(context);
+          await QuickAlert.show(
+            context: context,
+            type: QuickAlertType.success,
+            text: 'Product Removed Successfully',
+          );
+        }
+      }
+    } catch (e) {
+      if (context.mounted) {
+        await QuickAlert.show(
+          context: context,
+          type: QuickAlertType.error,
+          title: 'Oops...',
+          text: 'Sorry, something went wrong',
+        );
+      }
+    }
+  }
 
   void onAddItemToCart({required BuildContext context}) async {
     try {

@@ -27,7 +27,7 @@ class CartItem {
   }
   Map<String, dynamic> toJson() => {
         'itemId': itemId,
-        'selectColor': selectColor,
+        'selectColor': selectColor??'No Found',
         'selectSize': selectSize??'No Found',
         'productId': productId,
         'quantity': quantity

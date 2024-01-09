@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shopify_app/models/cart_model.dart';
+import 'package:shopify_app/providers/cart_provider.dart';
 import 'package:shopify_app/utils/constants.dart';
 
 class CartItemWidget extends StatefulWidget {
   const CartItemWidget(
       {super.key,
+      required this.itemId,
+      required this.cartData,
       required this.imagePath,
       required this.quantity,
       required this.nameTxt,
@@ -13,6 +18,8 @@ class CartItemWidget extends StatefulWidget {
   final String nameTxt, typeTxt;
   final String priceTxt;
   final int quantity;
+  final String itemId;
+  final CartModel cartData;
 
   @override
   State<CartItemWidget> createState() => _CartItemWidgetState();
@@ -68,17 +75,18 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         ),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        widget.typeTxt,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w300,
-                          fontSize: 15,
-                          color: Color(0xff515c6f),
+                    if (widget.typeTxt != 'color: No Found, size: No Found')
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          widget.typeTxt,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w300,
+                            fontSize: 15,
+                            color: Color(0xff515c6f),
+                          ),
                         ),
                       ),
-                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: Align(
@@ -149,10 +157,6 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         ),
                       ],
                     ),
-                    // SizedBox(
-                    //   width: 222,
-                    //   child: Divider(),
-                    // ),
                   ],
                 ),
               )
@@ -166,14 +170,22 @@ class _CartItemWidgetState extends State<CartItemWidget> {
             height: 24,
             alignment: Alignment.center,
             margin: EdgeInsets.only(right: 10, top: 8),
-            child: Icon(
-              Icons.close,
-              color: Colors.white,
-              size: 20,
-            ),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(4)),
                 color: kPrimaryColor),
+            child: GestureDetector(
+              onTap: () {
+                Provider.of<CartProvider>(context,listen: false).onRemoveItemFromCart(
+                    context: context,
+                    itemId: widget.itemId,
+                    cart: widget.cartData);
+              },
+              child: Icon(
+                Icons.close,
+                color: Colors.white,
+                size: 20,
+              ),
+            ),
           ),
         ),
       ],

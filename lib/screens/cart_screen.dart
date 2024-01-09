@@ -11,6 +11,7 @@ import '../widgets/cart_item_widget.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,12 +68,14 @@ class CartScreen extends StatelessWidget {
                                         nameTxt:
                                             snapShot.data?.name ?? 'no name',
                                         typeTxt:
-                                            'color: ${data.items?[index].selectColor ?? 'pink'}, size: ${data.items?[index].selectSize ?? 'small'}',
+                                            'color: ${data.items?[index].selectColor}, size: ${data.items?[index].selectSize}',
                                         priceTxt:
                                             snapShot.data?.price.toStringAsFixed(2) ??
                                                 'no price',
                                         quantity:
                                             data.items?[index].quantity ?? 0,
+                                        itemId: data.items![index].itemId!,
+                                        cartData: data,
                                       );
                                     },
                                   ),
