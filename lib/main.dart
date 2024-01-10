@@ -17,11 +17,11 @@ void main() async{
   );
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(create: (_) => AuthProviderApp()),
-      Provider(create: (_) => AdsProvider()),
-      Provider(create: (_) => CategoriesProvider()),
-      Provider(create: (_) => ProductsProvider()),
-      Provider(create: (_) => CartProvider()),
+      ChangeNotifierProvider(create: (_) => AuthProviderApp()), //setState
+      Provider(create: (_) => AdsProvider()),//serviceHolder
+      Provider(create: (_) => CategoriesProvider()),//serviceHolder
+      Provider(create: (_) => ProductsProvider()),//serviceHolder
+      Provider(create: (_) => CartProvider()),//serviceHolder
     ],
     child: const MyApp(),
   ));

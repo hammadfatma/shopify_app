@@ -7,6 +7,7 @@ import 'package:shopify_app/utils/constants.dart';
 class CartItemWidget extends StatefulWidget {
   const CartItemWidget(
       {super.key,
+      required this.contextDelete,
       required this.itemId,
       required this.cartData,
       required this.imagePath,
@@ -20,13 +21,13 @@ class CartItemWidget extends StatefulWidget {
   final int quantity;
   final String itemId;
   final CartModel cartData;
+  final BuildContext contextDelete;
 
   @override
   State<CartItemWidget> createState() => _CartItemWidgetState();
 }
 
 class _CartItemWidgetState extends State<CartItemWidget> {
-  int value = 1;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -105,10 +106,12 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            setState(() {
-                              value--;
-                            });
-                          },
+                            Provider.of<CartProvider>(context, listen: false)
+                                .onDecreaseItemQuantity(
+                                    context: widget.contextDelete,
+                                    itemId: widget.itemId,
+                                    cart: widget.cartData);
+                          },//
                           child: Container(
                             width: 18,
                             height: 18,
@@ -135,9 +138,11 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            setState(() {
-                              value++;
-                            });
+                            Provider.of<CartProvider>(context, listen: false)
+                                .onIncreaseItemQuantity(
+                                    context: context,
+                                    itemId: widget.itemId,
+                                    cart: widget.cartData);
                           },
                           child: Container(
                             width: 18,
@@ -175,10 +180,11 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                 color: kPrimaryColor),
             child: GestureDetector(
               onTap: () {
-                Provider.of<CartProvider>(context,listen: false).onRemoveItemFromCart(
-                    context: context,
-                    itemId: widget.itemId,
-                    cart: widget.cartData);
+                Provider.of<CartProvider>(context, listen: false)
+                    .onRemoveItemFromCart(
+                        context: widget.contextDelete,
+                        itemId: widget.itemId,
+                        cart: widget.cartData);
               },
               child: Icon(
                 Icons.close,
