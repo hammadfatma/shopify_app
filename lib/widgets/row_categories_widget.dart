@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shopify_app/screens/all_categories_screen.dart';
 
 import '../models/categories_model.dart';
-import '../screens/all_products_screen.dart';
 import 'categories_circle_widget.dart';
 
 class RowCategoriesWidget extends StatelessWidget {

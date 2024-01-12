@@ -19,10 +19,12 @@ class ProductDetailsScreen extends StatefulWidget {
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
-  void initState(){
-    Provider.of<CartProvider>(context,listen: false).createItemInstance();
-    super.initState(); // every time open details create instance of cartItem was empty but adding was in firebase
+  void initState() {
+    Provider.of<CartProvider>(context, listen: false).createItemInstance();
+    super
+        .initState(); // every time open details create instance of cartItem was empty but adding was in firebase
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +48,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(widget.product.name, textAlign: TextAlign.center, style: kStyle1),
+              Text(widget.product.name,
+                  textAlign: TextAlign.center, style: kStyle1),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -124,29 +127,31 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     ),
                   ),
                   SizedBox(height: 8),
-                  SelectedColor(productsModel: widget.product,selectedColorCallBack: (color){
-                    String colorString = color.toString();
-                    if(colorString == 'Color(0xffed5199)'){
-                      colorString = 'Brilliant Rose';
-                    }else if(colorString == 'Color(0xffff8c69)'){
-                      colorString = 'Salmon';
-                    }else if(colorString == 'Color(0xff67b5f7)'){
-                      colorString = 'Malibu';
-                    }
-                    else if(colorString == 'Color(0xffffffff)'){
-                      colorString = 'White';
-                    }
-                    else if(colorString == 'Color(0xffc9c9c9)'){
-                      colorString = 'Silver';
-                    }
-                    else if(colorString == 'Color(0xff3e3a3a)'){
-                      colorString = 'Mine Shaft';
-                    }else{
-                      colorString = 'No Found';
-                    }
-                    print("============${color.toString()}========");
-                    Provider.of<CartProvider>(context, listen: false).cartItem?.selectColor = colorString;
-                  },),
+                  SelectedColor(
+                    productsModel: widget.product,
+                    selectedColorCallBack: (color) {
+                      String colorString = color.toString();
+                      if (colorString == 'Color(0xffed5199)') {
+                        colorString = 'Soft pink';
+                      } else if (colorString == 'Color(0xffff8c69)') {
+                        colorString = 'Light red';
+                      } else if (colorString == 'Color(0xff67b5f7)') {
+                        colorString = 'Soft blue';
+                      } else if (colorString == 'Color(0xffffffff)') {
+                        colorString = 'White';
+                      } else if (colorString == 'Color(0xffc9c9c9)') {
+                        colorString = 'Light gray';
+                      } else if (colorString == 'Color(0xff3e3a3a)') {
+                        colorString = 'Dark gray';
+                      } else {
+                        colorString = 'Nothing';
+                      }
+                      print("============${color.toString()}========");
+                      Provider.of<CartProvider>(context, listen: false)
+                          .cartItem
+                          ?.selectColor = colorString;
+                    },
+                  ),
                   SizedBox(height: 8),
                   Align(
                     alignment: Alignment.topLeft,
@@ -160,10 +165,16 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     ),
                   ),
                   SizedBox(height: 8),
-                  SelectedSize(productsModel: widget.product,selectedSizeCallBack: (size){
-                    print("============${size}========");
-                    Provider.of<CartProvider>(context,listen: false).cartItem?.selectSize = size;
-                  },),
+                  SelectedSize(
+                    productsModel: widget.product,
+                    selectedSizeCallBack: (sizeValue) {
+                      print("============${sizeValue}========");
+                      String sizeString = sizeValue.toString();
+                      Provider.of<CartProvider>(context, listen: false)
+                          .cartItem
+                          ?.valueSize = sizeString;
+                    },
+                  ),
                   SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -171,18 +182,18 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       CustomButtonWidget(
                         txt: 'ADD TO CART',
                         onTap: () {
-                          Provider.of<CartProvider>(context,listen: false).cartItem?.productId = widget.product.id;
-                          Provider.of<CartProvider>(context, listen: false).cartItem?.quantity = 1;
+                          Provider.of<CartProvider>(context, listen: false)
+                              .cartItem
+                              ?.productId = widget.product.id;
+                          Provider.of<CartProvider>(context, listen: false)
+                              .cartItem
+                              ?.quantity = 1;
                           // uuid to generate random id and not repeat any more
-                          Provider.of<CartProvider>(context,listen: false).cartItem?.itemId = Uuid().v4();
-                          Provider.of<CartProvider>(context,listen: false).onAddItemToCart(context: context);
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => CartScreen(
-                          //         product: widget.product,
-                          //       ),
-                          //     ));
+                          Provider.of<CartProvider>(context, listen: false)
+                              .cartItem
+                              ?.itemId = Uuid().v4();
+                          Provider.of<CartProvider>(context, listen: false)
+                              .onAddItemToCart(context: context);
                         },
                         width: 165,
                       ),

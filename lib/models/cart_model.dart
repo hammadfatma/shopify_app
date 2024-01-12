@@ -14,21 +14,21 @@ class CartModel {
 class CartItem {
   String? itemId; // to know any item should updated
   String? selectColor;
-  String? selectSize;
+  String? valueSize;
   String? productId;
   int? quantity;
   CartItem();
   CartItem.fromJson(Map<String, dynamic> data) {
     itemId = data['itemId'];
     selectColor = data['selectColor'];
-    selectSize = data['selectSize'];
+    valueSize = data['valueSize'];
     productId = data['productId'];
     quantity = data['quantity'];
   }
   Map<String, dynamic> toJson() => {
         'itemId': itemId,
-        'selectColor': selectColor??'No Found',
-        'selectSize': selectSize??'No Found',
+        'selectColor': selectColor ?? 'Nothing',
+        'valueSize': valueSize ?? 'Nothing',
         'productId': productId,
         'quantity': quantity
       };

@@ -76,7 +76,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         ),
                       ),
                     ),
-                    if (widget.typeTxt != 'color: No Found, size: No Found')
+                    if (widget.typeTxt != 'color: Nothing, size: Nothing')
                       Align(
                         alignment: Alignment.topLeft,
                         child: Text(
@@ -111,7 +111,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                                     context: widget.contextDelete,
                                     itemId: widget.itemId,
                                     cart: widget.cartData);
-                          },//
+                          }, //
                           child: Container(
                             width: 18,
                             height: 18,

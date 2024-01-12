@@ -7,32 +7,34 @@ import 'package:shopify_app/models/products_model.dart';
 
 class CartProvider {
   CartItem? cartItem;
-  double total = 0;
-  List<ProductsModel> products = []; // contains all products in items in cart
-  ValueNotifier<double> totalNotifier =
-      ValueNotifier(0); // object given to valueNotifierListener
+  List<ProductsModel> products = [];
+
+  double _total = 0;
+
+  ValueNotifier<double> totalNotifier = ValueNotifier(0);
+
   void onAddProductToList(ProductsModel product, CartModel cart) {
-    var index = products.indexWhere(
-        (element) => element.id == product.id); // indexWhere deals with object
-    //
+    var index = products.indexWhere((element) => (element.id == product.id));
     if (index == -1) {
-      //-1 means this product not found in list
       products.add(product);
     }
   }
 
   void calculateTotal(CartModel cart) {
-    total = 0;
+    _total = 0;
     for (var item in cart.items!) {
-      if (products.isEmpty) return; // exits from function
+      if (products.isEmpty) return;
       var product =
-          products.firstWhere((product) => product.id == item.productId);
-      total += ((product.price) * (item.quantity ?? 0))
-          .round(); // calculate total price to all items in cart
+          products.where((product) => product.id == item.productId).firstOrNull;
+
+      if (product != null) {
+        _total += ((product.price) * (item.quantity ?? 0)).round();
+      }
     }
+
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      totalNotifier.value = total; // listen every change of total value
-    }); // we need another frame to appear total price
+      totalNotifier.value = _total;
+    });
   }
 
   void createItemInstance() {
@@ -158,7 +160,7 @@ class CartProvider {
   void onAddItemToCart({required BuildContext context}) async {
     try {
       bool isEqual = false;
-      int counter = 0;
+      //int counter = 0;
       String? updatedItemId;
       QuickAlert.show(context: context, type: QuickAlertType.loading);
       var result = await FirebaseFirestore.instance
@@ -169,27 +171,14 @@ class CartProvider {
         var fireBaseCartItems =
             CartModel.fromJson(result.data() ?? {}); // all items of cart
         for (var item in fireBaseCartItems.items ?? []) {
-          if (cartItem?.productId != item.productId) {
-            break; // this is meaning new product
-          }
-          if (cartItem?.selectColor != item.selectColor) {
-            break; // different color
-          }
-          if (cartItem?.selectSize != item.selectSize) {
-            break;
-          } // different size
-          isEqual = false;
-          counter = 0; // to go initial state
-          if (cartItem?.selectColor == item.selectColor &&
-              cartItem?.selectSize == item.selectSize) {
-            counter++;
-          } // this is meaning same product
-          if (counter == 1) {
+          if (cartItem?.productId == item.productId &&
+              (cartItem?.valueSize ?? 'Nothing') ==
+                  (item.valueSize ?? 'Nothing') &&
+              (cartItem?.selectColor ?? 'Nothing') ==
+                  (item.selectColor ?? 'Nothing')) {
             isEqual = true;
-            updatedItemId = item?.itemId; // to know any item updated 'quantity'
-            break; // to avoid repeat check circle
-          } else {
-            isEqual = false;
+            updatedItemId = item.itemId;
+            break;
           }
         }
         if (isEqual && updatedItemId != null) {

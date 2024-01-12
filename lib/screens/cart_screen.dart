@@ -20,6 +20,7 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext screenContext) {
     return Scaffold(
+      backgroundColor: kBackColor,
       appBar: const CustomAppBarWidget(),
       body: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
@@ -42,19 +43,22 @@ class _CartScreenState extends State<CartScreen> {
                   children: [
                     SingleChildScrollView(
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Align(
-                            alignment: Alignment.topLeft,
+                          SizedBox(
                             child: Text(
                               'Cart',
                               style: kHeadLineStyle,
                             ),
                           ),
-                          SizedBox(
-                            height: 20,
+                          SingleChildScrollView(
+                            child: SizedBox(
+                              height: 5,
+                            ),
                           ),
                           ListView.builder(
                             shrinkWrap: true,
+                            padding: EdgeInsets.zero,
                             itemCount: data.items?.length,
                             itemBuilder: (context, index) {
                               return Padding(
@@ -79,7 +83,7 @@ class _CartScreenState extends State<CartScreen> {
                                           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNgzWAan9TYETCLgNxYmJuUgpDKZgWT4FF84GJyo12bZde672xL0l-gsSaeA&s',
                                       nameTxt: snapShot.data?.name ?? 'no name',
                                       typeTxt:
-                                          'color: ${data.items?[index].selectColor}, size: ${data.items?[index].selectSize}',
+                                          'color: ${data.items?[index].selectColor}, size: ${data.items?[index].valueSize}',
                                       priceTxt: snapShot.data?.price
                                               .toStringAsFixed(2) ??
                                           'no price',
@@ -95,10 +99,12 @@ class _CartScreenState extends State<CartScreen> {
                               );
                             },
                           ),
-                          SizedBox(
-                            height: 20,
-                            child: Center(
-                              child: Divider(),
+                          SingleChildScrollView(
+                            child: SizedBox(
+                              height: 50,
+                              child: Center(
+                                child: Divider(),
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -108,10 +114,8 @@ class _CartScreenState extends State<CartScreen> {
                         ],
                       ),
                     ),
-                    Positioned(
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
+                    Align(
+                      alignment: Alignment.bottomCenter,
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width,
                         height: 100,
