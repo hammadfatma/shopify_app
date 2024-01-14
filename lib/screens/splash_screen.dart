@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shopify_app/screens/home_screen.dart';
 import 'package:shopify_app/screens/master_screen.dart';
+import 'package:shopify_app/services/notification_service.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -30,6 +31,8 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
         );
       } else {
+        NotificationService.checkNotificationOnKilledApp();
+        NotificationService.init();// used in this screen because when open app i check if user auth get token and store in firestore
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(

@@ -49,12 +49,3 @@ class _SelectedColorState extends State<SelectedColor> {
     );
   }
 }
-
-// final List<Color> colors = [
-//   Color(0xffed5199),
-//   Color(0xffff8c69),
-//   Color(0xff67b5f7),
-//   Color(0xffffffff),
-//   Color(0xffc9c9c9),
-//   Color(0xff3e3a3a),
-// ];

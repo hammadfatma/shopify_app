@@ -160,7 +160,6 @@ class CartProvider {
   void onAddItemToCart({required BuildContext context}) async {
     try {
       bool isEqual = false;
-      //int counter = 0;
       String? updatedItemId;
       QuickAlert.show(context: context, type: QuickAlertType.loading);
       var result = await FirebaseFirestore.instance

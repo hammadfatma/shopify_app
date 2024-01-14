@@ -41,81 +41,87 @@ class _CartScreenState extends State<CartScreen> {
               } else {
                 return Stack(
                   children: [
-                    SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            child: Text(
-                              'Cart',
-                              style: kHeadLineStyle,
+                    Positioned(
+                      top: 0,
+                      right: 0,
+                      left: 0,
+                      bottom: 0,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              child: Text(
+                                'Cart',
+                                style: kHeadLineStyle,
+                              ),
                             ),
-                          ),
-                          SingleChildScrollView(
-                            child: SizedBox(
+                            SizedBox(
                               height: 5,
                             ),
-                          ),
-                          ListView.builder(
-                            shrinkWrap: true,
-                            padding: EdgeInsets.zero,
-                            itemCount: data.items?.length,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: EdgeInsets.only(bottom: 4.0),
-                                child: FutureBuilder(
-                                  future: Provider.of<ProductsProvider>(context)
-                                      .getProductsById(
-                                          productId:
-                                              data.items![index].productId!),
-                                  builder: (context, snapShot) {
-                                    if (snapShot.data != null) {
-                                      Provider.of<CartProvider>(context,
-                                              listen: false)
-                                          .onAddProductToList(
-                                              snapShot.data!, data);
-                                      Provider.of<CartProvider>(
-                                        context,
-                                      ).calculateTotal(data);
-                                    }
-                                    return CartItemWidget(
-                                      imagePath: snapShot.data?.image ??
-                                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNgzWAan9TYETCLgNxYmJuUgpDKZgWT4FF84GJyo12bZde672xL0l-gsSaeA&s',
-                                      nameTxt: snapShot.data?.name ?? 'no name',
-                                      typeTxt:
-                                          'color: ${data.items?[index].selectColor}, size: ${data.items?[index].valueSize}',
-                                      priceTxt: snapShot.data?.price
-                                              .toStringAsFixed(2) ??
-                                          'no price',
-                                      quantity:
-                                          data.items?[index].quantity ?? 0,
-                                      itemId: data.items![index].itemId!,
-                                      cartData: data,
-                                      contextDelete:
-                                          screenContext, // send context of screen to recoginze context for loading in remove function
-                                    );
-                                  },
-                                ),
-                              );
-                            },
-                          ),
-                          SingleChildScrollView(
-                            child: SizedBox(
+                            ListView.builder(
+                              shrinkWrap: true,
+                              padding: EdgeInsets.zero,
+                              itemCount: data.items?.length,
+                              itemBuilder: (context, index) {
+                                return SingleChildScrollView(
+                                  child: Padding(
+                                    padding: EdgeInsets.only(bottom: 4.0),
+                                    child: FutureBuilder(
+                                      future: Provider.of<ProductsProvider>(context)
+                                          .getProductsById(
+                                              productId:
+                                                  data.items![index].productId!),
+                                      builder: (context, snapShot) {
+                                        if (snapShot.data != null) {
+                                          Provider.of<CartProvider>(context,
+                                                  listen: false)
+                                              .onAddProductToList(
+                                                  snapShot.data!, data);
+                                          Provider.of<CartProvider>(
+                                            context,
+                                          ).calculateTotal(data);
+                                        }
+                                        return CartItemWidget(
+                                          imagePath: snapShot.data?.image ??
+                                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNgzWAan9TYETCLgNxYmJuUgpDKZgWT4FF84GJyo12bZde672xL0l-gsSaeA&s',
+                                          nameTxt: snapShot.data?.name ?? 'no name',
+                                          typeTxt:
+                                              'color: ${data.items?[index].selectColor}, size: ${data.items?[index].valueSize}',
+                                          priceTxt: snapShot.data?.price
+                                                  .toStringAsFixed(2) ??
+                                              'no price',
+                                          quantity:
+                                              data.items?[index].quantity ?? 0,
+                                          itemId: data.items![index].itemId!,
+                                          cartData: data,
+                                          contextDelete:
+                                              screenContext, // send context of screen to recoginze context for loading in remove function
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                            SizedBox(
                               height: 50,
                               child: Center(
                                 child: Divider(),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width,
-                            height: 100,
-                          ),
-                        ],
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width,
+                              height: 100,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
+                    Positioned(
+                      bottom: 0,
+                      right: 0,
+                      left: 0,
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width,
                         height: 100,

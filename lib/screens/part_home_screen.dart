@@ -98,7 +98,7 @@ class PartHomeScreen extends StatelessWidget {
             Consumer<ProductsProvider>(
               builder: (context, value, child) {
                 return FutureBuilder(
-                  future: value.getProducts(context),
+                  future: value.getProducts(context,limit: 3),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(

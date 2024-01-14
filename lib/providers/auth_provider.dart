@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:quickalert/quickalert.dart';
+import 'package:shopify_app/services/notification_service.dart';
 import '../screens/home_screen.dart';
 import '../screens/splash_screen.dart';
 
@@ -148,6 +149,7 @@ class AuthProviderApp extends ChangeNotifier {
 
   Future<void> signOut(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
+    NotificationService.onPushNotificationClosed();
     if (context.mounted) {
       await QuickAlert.show(
         context: context,
