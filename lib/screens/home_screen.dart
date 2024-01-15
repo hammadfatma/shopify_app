@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopify_app/screens/part_home_screen.dart';
+import 'package:shopify_app/screens/profile_screen.dart';
 import 'package:shopify_app/utils/constants.dart';
 import '../widgets/icon_badge_widget.dart';
 
@@ -21,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> widgetOptions = [
     PartHomeScreen(),
     Text('Search Screen'),
-    Text('Profile Screen'),
+    ProfileScreen(),
     Text('More Screen'),
   ];
   @override

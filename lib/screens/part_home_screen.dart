@@ -2,9 +2,7 @@ import 'package:flexible_grid_view/flexible_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopify_app/screens/product_details_screen.dart';
-
 import '../providers/ads_provider.dart';
-import '../providers/auth_provider.dart';
 import '../providers/categories_provider.dart';
 import '../providers/products_provider.dart';
 import '../utils/constants.dart';
@@ -139,16 +137,6 @@ class PartHomeScreen extends StatelessWidget {
                   },
                 );
               },
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Provider.of<AuthProviderApp>(context, listen: false)
-                    .signOut(context);
-              },
-              child: Text('Log Out'),
             ),
           ],
         ),

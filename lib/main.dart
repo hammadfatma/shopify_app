@@ -7,6 +7,7 @@ import 'package:shopify_app/providers/auth_provider.dart';
 import 'package:shopify_app/providers/cart_provider.dart';
 import 'package:shopify_app/providers/categories_provider.dart';
 import 'package:shopify_app/providers/products_provider.dart';
+import 'package:shopify_app/providers/profile_provider.dart';
 import 'package:shopify_app/screens/splash_screen.dart';
 
 import 'firebase_options.dart';
@@ -23,6 +24,7 @@ void main() async {
       Provider(create: (_) => CategoriesProvider()), //serviceHolder
       Provider(create: (_) => ProductsProvider()), //serviceHolder
       Provider(create: (_) => CartProvider()), //serviceHolder
+      Provider(create: (_) => ProfileProvider()), //serviceHolder
     ],
     child: const MyApp(),
   ));
