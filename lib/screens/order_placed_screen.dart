@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopify_app/screens/all_orders_screen.dart';
 import 'package:shopify_app/widgets/custom_appbar_widget.dart';
 import 'package:shopify_app/widgets/custom_button_icon.dart';
 
@@ -62,7 +63,15 @@ class OrderPlacedScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: CustomButtonWidget(txt: 'MY ORDERS', onTap: (){}, width: 165),
+              child: CustomButtonWidget(
+                  txt: 'MY ORDERS',
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MyOrdersScreen()));
+                  },
+                  width: 165),
             ),
           ],
         ),

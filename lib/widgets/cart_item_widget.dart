@@ -76,7 +76,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         ),
                       ),
                     ),
-                    if (widget.typeTxt != 'color: Nothing, size: Nothing')
+                    if (widget.typeTxt != 'Nothing, Nothing')
                       Align(
                         alignment: Alignment.topLeft,
                         child: Text(

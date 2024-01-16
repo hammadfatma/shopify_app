@@ -62,33 +62,33 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       color: kSecondaryColor,
                     ),
                   ),
-                  Container(
-                    width: 42,
-                    height: 19,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: kPrimaryColor,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.star,
-                          size: 12,
-                          color: kWhiteColor,
-                        ),
-                        Text(
-                          '4.9',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: kWhiteColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  // Container(
+                  //   width: 42,
+                  //   height: 19,
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(10),
+                  //     color: kPrimaryColor,
+                  //   ),
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     children: [
+                  //       Icon(
+                  //         Icons.star,
+                  //         size: 12,
+                  //         color: kWhiteColor,
+                  //       ),
+                  //       Text(
+                  //         '4.9',
+                  //         textAlign: TextAlign.center,
+                  //         style: TextStyle(
+                  //           fontSize: 12,
+                  //           fontWeight: FontWeight.bold,
+                  //           color: kWhiteColor,
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               )
             ],

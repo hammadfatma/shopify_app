@@ -21,9 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> widgetOptions = [
     PartHomeScreen(),
-    Text('Search Screen'),
     ProfileScreen(),
-    Text('More Screen'),
   ];
   @override
   Widget build(BuildContext context) {
@@ -78,19 +76,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 label: 'Home'),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.search_outlined,
-                ),
-                label: 'Search'),
-            BottomNavigationBarItem(
-                icon: Icon(
                   Icons.person_outlined,
                 ),
                 label: 'Profile'),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.menu_outlined,
-                ),
-                label: 'More'),
           ]),
     );
   }

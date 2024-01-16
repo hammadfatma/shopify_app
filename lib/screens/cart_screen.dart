@@ -87,7 +87,7 @@ class _CartScreenState extends State<CartScreen> {
                                               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNgzWAan9TYETCLgNxYmJuUgpDKZgWT4FF84GJyo12bZde672xL0l-gsSaeA&s',
                                           nameTxt: snapShot.data?.name ?? 'no name',
                                           typeTxt:
-                                              'color: ${data.items?[index].selectColor}, size: ${data.items?[index].valueSize}',
+                                              '${data.items?[index].selectColor}, ${data.items?[index].valueSize}',
                                           priceTxt: snapShot.data?.price
                                                   .toStringAsFixed(2) ??
                                               'no price',
