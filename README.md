@@ -17,3 +17,6 @@ samples, guidance on mobile development, and a full API reference.
 
 # video
 <video src='https://github.com/hammadfatma/shopify_app/assets/97297539/fdefa50c-9713-4ffc-910a-0b24ea6c7b46' width=180/>
+
+# screenshots
+<img src="splash-screen.jpg" width="200px" height="300px"> <img src="login-screen.jpg" width="200px" height="300px"> <img src="signup-screen.jpg" width="200px" height="300px"> <img src="forgot-screen.jpg" width="200px" height="300px">
