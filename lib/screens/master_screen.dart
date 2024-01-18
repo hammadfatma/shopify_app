@@ -28,8 +28,8 @@ class MasterScreen extends StatelessWidget {
                   isScrollable: true,
                   unselectedLabelColor: kSecondaryColor.withOpacity(0.200),
                   labelColor: kSecondaryColor,
-                  indicator: BoxDecoration(),
-                  tabs: [
+                  indicator: const BoxDecoration(),
+                  tabs: const [
                     Text(
                       'Log In',
                       style: TextStyle(
@@ -55,7 +55,7 @@ class MasterScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
+            const Expanded(
               child: TabBarView(
                 children: [
                   LogInScreen(),

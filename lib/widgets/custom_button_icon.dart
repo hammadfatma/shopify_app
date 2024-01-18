@@ -18,7 +18,7 @@ class CustomButtonWidget extends StatelessWidget {
         decoration: BoxDecoration(
             color: kPrimaryColor,
             borderRadius: BorderRadius.circular(23),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Color.fromRGBO(255, 105, 105, 0.4),
                 offset: Offset(0, 10),
@@ -33,14 +33,14 @@ class CustomButtonWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Center(
                   child: Text(
                     txt,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1,
@@ -53,9 +53,9 @@ class CustomButtonWidget extends StatelessWidget {
                   height: 30,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
-                    color: Color(0xffffffff),
+                    color: const Color(0xffffffff),
                   ),
-                  child: Icon(Icons.arrow_forward_ios_outlined,
+                  child: const Icon(Icons.arrow_forward_ios_outlined,
                       size: 15, color: kPrimaryColor),
                 )
               ],

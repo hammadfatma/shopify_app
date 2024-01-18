@@ -22,7 +22,7 @@ class CarouselSliderWidget extends StatelessWidget {
                   fit: BoxFit.fill,
                 ),
                 borderRadius: BorderRadius.circular(10),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Color.fromARGB(25, 114, 124, 142),
                     offset: Offset(0, 10),
@@ -42,7 +42,7 @@ class CarouselSliderWidget extends StatelessWidget {
                       item.title,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 3,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.w300,
                         fontSize: 18,
                         color: Color(0xffffffff),
@@ -51,63 +51,6 @@ class CarouselSliderWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Positioned(
-                //   left: 20,
-                //   bottom: 20,
-                //   child: Container(
-                //     width: 121,
-                //     height: 39,
-                //     decoration: BoxDecoration(
-                //         borderRadius: BorderRadius.circular(20),
-                //         color: Color(0xffffffff),
-                //         boxShadow: [
-                //           BoxShadow(
-                //             color: Color.fromARGB(36, 114, 124, 142),
-                //             offset: Offset(0, 10),
-                //             blurRadius: 5,
-                //             spreadRadius: 2,
-                //           ),
-                //         ]),
-                //     child: Center(
-                //       child: Padding(
-                //         padding: const EdgeInsets.all(8.0),
-                //         child: Row(
-                //           mainAxisSize: MainAxisSize.max,
-                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //           children: [
-                //             Text(
-                //               'SEE MORE',
-                //               textAlign: TextAlign.center,
-                //               style: TextStyle(
-                //                 fontSize: 12,
-                //                 color: Color(0xff727c8e),
-                //                 fontWeight: FontWeight.w500,
-                //                 letterSpacing: 1,
-                //               ),
-                //             ),
-                //             Container(
-                //               width: 29,
-                //               height: 30,
-                //               decoration: BoxDecoration(
-                //                 borderRadius: BorderRadius.circular(14),
-                //                 color: Color(0xffff6969),
-                //               ),
-                //               child: Center(
-                //                 child: Icon(
-                //                   Icons.arrow_forward_ios_outlined,
-                //                   size: 15,
-                //                   color: Color(
-                //                     0xffffffff,
-                //                   ),
-                //                 ),
-                //               ),
-                //             ),
-                //           ],
-                //         ),
-                //       ),
-                //     ),
-                //   ),
-                // ),
               ],
             ),
           ),

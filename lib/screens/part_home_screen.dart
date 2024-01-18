@@ -21,7 +21,7 @@ class PartHomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Align(
+            const Align(
               alignment: Alignment.topLeft,
               child: Text(
                 'Categories',
@@ -40,12 +40,12 @@ class PartHomeScreen extends StatelessWidget {
                     } else if (snapshot.connectionState ==
                         ConnectionState.done) {
                       if (snapshot.hasError) {
-                        return Text('Error While Get Data');
+                        return const Text('Error While Get Data');
                       } else if (snapshot.hasData) {
                         return RowCategoriesWidget(
                             categories: snapshot.data ?? []);
                       } else {
-                        return Text('No Data Found');
+                        return const Text('No Data Found');
                       }
                     } else {
                       return Text(
@@ -55,7 +55,7 @@ class PartHomeScreen extends StatelessWidget {
                 );
               },
             ),
-            Align(
+            const Align(
               alignment: Alignment.topLeft,
               child: Text(
                 'Latest',
@@ -74,13 +74,13 @@ class PartHomeScreen extends StatelessWidget {
                     } else if (snapshot.connectionState ==
                         ConnectionState.done) {
                       if (snapshot.hasError) {
-                        return Text('Error While Get Data');
+                        return const Text('Error While Get Data');
                       } else if (snapshot.hasData) {
                         return CarouselSliderWidget(
                           advertisements: snapshot.data ?? [],
                         );
                       } else {
-                        return Text('No Data Found');
+                        return const Text('No Data Found');
                       }
                     } else {
                       return Text(
@@ -90,7 +90,7 @@ class PartHomeScreen extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Consumer<ProductsProvider>(
@@ -105,7 +105,7 @@ class PartHomeScreen extends StatelessWidget {
                     } else if (snapshot.connectionState ==
                         ConnectionState.done) {
                       if (snapshot.hasError) {
-                        return Text('Error While Get Data');
+                        return const Text('Error While Get Data');
                       } else if (snapshot.hasData) {
                         return FlexibleGridView(
                             axisCount: GridLayoutEnum.threeElementsInRow,
@@ -128,7 +128,7 @@ class PartHomeScreen extends StatelessWidget {
                                 .toList() ??
                                 []);
                       } else {
-                        return Text('No Data Found');
+                        return const Text('No Data Found');
                       }
                     } else {
                       return Text(

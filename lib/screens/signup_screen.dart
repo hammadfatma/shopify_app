@@ -66,7 +66,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       onTap: value.toggleObscure,
                       obstxt: value.obscureText,
                       controller: value.passController!),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   CustomButtonWidget(
@@ -75,14 +75,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       await value.signUp(context);
                     }, width: 330,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   SizedBox(
                     width: 231,
                     height: 34,
                     child: RichText(
-                      text: TextSpan(
+                      text: const TextSpan(
                         text: 'By creating an account, you agree to our ',
                         style: kStyle1,
                         children: [

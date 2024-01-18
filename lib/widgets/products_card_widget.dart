@@ -17,7 +17,7 @@ class ProductWidget extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: kWhiteColor,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Color(0xffe7eaf0),
                 offset: Offset(0, 10),
@@ -39,7 +39,7 @@ class ProductWidget extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   product.name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w300,
                     color: Color(0xff515c6f),
@@ -50,7 +50,7 @@ class ProductWidget extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   '\$${product.price.toStringAsFixed(2)}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                     color: Color(0xff515c6f),

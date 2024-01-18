@@ -32,12 +32,12 @@ class _CartScreenState extends State<CartScreen> {
                 child: CircularProgressIndicator(),
               );
             } else if (snapshot.hasError) {
-              return Text('Error While Get Data');
+              return const Text('Error While Get Data');
             } else if (snapshot.hasData) {
               var data = CartModel.fromJson(
                   Map<String, dynamic>.from(snapshot.data?.data() ?? {}));
               if (data.items?.isEmpty ?? false) {
-                return Center(child: Text('No Data Found'));
+                return Center(child: Image.network('https://www.adasglobal.com/img/empty-cart.png'));
               } else {
                 return Stack(
                   children: [
@@ -50,13 +50,13 @@ class _CartScreenState extends State<CartScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               child: Text(
                                 'Cart',
                                 style: kHeadLineStyle,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             ListView.builder(
@@ -66,7 +66,7 @@ class _CartScreenState extends State<CartScreen> {
                               itemBuilder: (context, index) {
                                 return SingleChildScrollView(
                                   child: Padding(
-                                    padding: EdgeInsets.only(bottom: 4.0),
+                                    padding: const EdgeInsets.only(bottom: 4.0),
                                     child: FutureBuilder(
                                       future: Provider.of<ProductsProvider>(context)
                                           .getProductsById(
@@ -96,7 +96,7 @@ class _CartScreenState extends State<CartScreen> {
                                           itemId: data.items![index].itemId!,
                                           cartData: data,
                                           contextDelete:
-                                              screenContext, // send context of screen to recoginze context for loading in remove function
+                                              screenContext,
                                         );
                                       },
                                     ),
@@ -104,7 +104,7 @@ class _CartScreenState extends State<CartScreen> {
                                 );
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 50,
                               child: Center(
                                 child: Divider(),
@@ -141,17 +141,14 @@ class _CartScreenState extends State<CartScreen> {
                                       color: kSecondaryColor.withOpacity(0.502),
                                     ),
                                   ),
-                                  //1- using ValueListenableBuilder to listen total price in every change
-                                  //2- setState this change (new value) without using ChangeNotifierProvider
-                                  //3- usable from listener because rebuild (refresh) for such this value not all screen
                                   ValueListenableBuilder(
                                     valueListenable:
                                         Provider.of<CartProvider>(context)
                                             .totalNotifier,
                                     builder: (context, value, child) {
                                       return Text(
-                                        '\$${value}',
-                                        style: TextStyle(
+                                        '\$$value',
+                                        style: const TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
                                           color: kSecondaryColor,
@@ -159,7 +156,7 @@ class _CartScreenState extends State<CartScreen> {
                                       );
                                     },
                                   ),
-                                  Text(
+                                  const Text(
                                     'Free Domestic Shipping',
                                     style: TextStyle(
                                       fontSize: 12,
@@ -175,7 +172,7 @@ class _CartScreenState extends State<CartScreen> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                OrderPlacedScreen()));
+                                                const OrderPlacedScreen()));
                                   },
                                   width: 165),
                             ],

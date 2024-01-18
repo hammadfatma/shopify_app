@@ -37,7 +37,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios_new_outlined,
             color: kPrimaryColor,
             size: 18,
@@ -56,7 +56,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   Text(
                     '\$${widget.product.price.toStringAsFixed(2)}',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: kSecondaryColor,
@@ -94,7 +94,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             ],
           ),
         ),
-        actions: [
+        actions: const [
           IconBadgeWidget(
             txt: '7',
             con: Icons.shopping_cart_outlined,
@@ -112,7 +112,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               fit: BoxFit.cover,
             ),
             Container(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Column(
                 children: [
                   Align(
@@ -126,7 +126,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           letterSpacing: 1),
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   SelectedColor(
                     productsModel: widget.product,
                     selectedColorCallBack: (color) {
@@ -146,13 +146,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       } else {
                         colorString = 'Nothing';
                       }
-                      print("============${color.toString()}========");
                       Provider.of<CartProvider>(context, listen: false)
                           .cartItem
                           ?.selectColor = colorString;
                     },
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
@@ -164,18 +163,17 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           letterSpacing: 1),
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   SelectedSize(
                     productsModel: widget.product,
                     selectedSizeCallBack: (sizeValue) {
-                      print("============${sizeValue}========");
                       String sizeString = sizeValue.toString();
                       Provider.of<CartProvider>(context, listen: false)
                           .cartItem
                           ?.valueSize = sizeString;
                     },
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -191,7 +189,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           // uuid to generate random id and not repeat any more
                           Provider.of<CartProvider>(context, listen: false)
                               .cartItem
-                              ?.itemId = Uuid().v4();
+                              ?.itemId = const Uuid().v4();
                           Provider.of<CartProvider>(context, listen: false)
                               .onAddItemToCart(context: context);
                         },

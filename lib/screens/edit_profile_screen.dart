@@ -22,7 +22,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   void initState() {
     Provider.of<ProfileProvider>(context, listen: false).createProfileInstance();
     super
-        .initState(); // every time open details create instance of cartItem was empty but adding was in firebase
+        .initState();
   }
   late TextEditingController nameController = TextEditingController();
   late TextEditingController phoneController = TextEditingController();
@@ -31,7 +31,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBackColor,
-      appBar: CustomAppBarWidget(),
+      appBar: const CustomAppBarWidget(),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
@@ -58,7 +58,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     await referenceImageToUpload.putFile(File(file.path),
                         SettableMetadata(contentType: 'image/png'));
                     imageUrl = await referenceImageToUpload.getDownloadURL();
-                    print('Image URL: $imageUrl');
                   } catch (e) {
                     if (context.mounted) {
                       await QuickAlert.show(
@@ -71,7 +70,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   }
                 },
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     gradient: LinearGradient(
                       colors: [kPrimaryColor, kSecondaryColor],
@@ -81,7 +80,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ),
                   width: 100.0,
                   height: 100.0,
-                  child: Center(
+                  child: const Center(
                     child: Icon(
                       Icons.image_outlined,
                       color: kWhiteColor,

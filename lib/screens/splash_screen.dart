@@ -27,16 +27,16 @@ class _SplashScreenState extends State<SplashScreen> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => MasterScreen(),
+            builder: (context) => const MasterScreen(),
           ),
         );
       } else {
         NotificationService.checkNotificationOnKilledApp();
-        NotificationService.init();// used in this screen because when open app i check if user auth get token and store in firestore
+        NotificationService.init();
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => HomeScreen(),
+            builder: (context) => const HomeScreen(),
           ),
         );
       }
@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
       child: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.black,
           image: DecorationImage(
               image: NetworkImage(
@@ -62,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
               fit: BoxFit.cover,
               opacity: 0.4),
         ),
-        child: Column(
+        child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(

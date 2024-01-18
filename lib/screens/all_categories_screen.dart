@@ -34,7 +34,7 @@ class _AllCategoriesScreenState extends State<AllCategoriesScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Align(
+                      const Align(
                         alignment: Alignment.topLeft,
                         child: Text(
                           'Categories',
@@ -52,7 +52,7 @@ class _AllCategoriesScreenState extends State<AllCategoriesScreen> {
                                 );
                               } else if (snapshot.connectionState == ConnectionState.done) {
                                 if (snapshot.hasError) {
-                                  return Text('Error While Get Data');
+                                  return const Text('Error While Get Data');
                                 } else if (snapshot.hasData) {
                                   return SizedBox(
                                     height: 666,
@@ -74,7 +74,7 @@ class _AllCategoriesScreenState extends State<AllCategoriesScreen> {
                                     ),
                                   );
                                 } else {
-                                  return Text('No Data Found');
+                                  return const Text('No Data Found');
                                 }
                               } else {
                                 return Text(

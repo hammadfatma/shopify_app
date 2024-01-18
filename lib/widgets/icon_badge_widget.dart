@@ -17,13 +17,13 @@ class IconBadgeWidget extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>CartScreen()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>const CartScreen()));
           },
           icon: Transform.flip(
             flipX: fl,
             child: Icon(
               con,
-              color: Color(0xff727c8e),
+              color: const Color(0xff727c8e),
               size: 20,
             ),
           ),
@@ -46,7 +46,7 @@ class IconBadgeWidget extends StatelessWidget {
                     label: Text(
                       '$quantity',
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
+                          const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
                     ),
                   );
                 }

@@ -47,8 +47,8 @@ class _SelectedColorState extends State<SelectedSize> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: selectedIndex == index
-                              ? Color(0xffff6969)
-                              : Color(0xff727c8e),
+                              ? const Color(0xffff6969)
+                              : const Color(0xff727c8e),
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                           letterSpacing: 1),

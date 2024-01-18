@@ -18,7 +18,7 @@ class CustomAppBarWidget extends StatelessWidget implements PreferredSizeWidget{
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.close_outlined,
             size: 18,
             color: kPrimaryColor,

@@ -35,9 +35,9 @@ class _CartItemWidgetState extends State<CartItemWidget> {
         Container(
           width: 666,
           height: 111,
-          margin: EdgeInsets.only(left: 16, right: 16, top: 16),
-          padding: EdgeInsets.only(left: 8, right: 8),
-          decoration: BoxDecoration(
+          margin: const EdgeInsets.only(left: 16, right: 16, top: 16),
+          padding: const EdgeInsets.only(left: 8, right: 8),
+          decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(16))),
           child: Row(
@@ -48,7 +48,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                 decoration: BoxDecoration(
                   color: kWhiteColor,
                   borderRadius: BorderRadius.circular(50),
-                  boxShadow: [
+                  boxShadow: const [
                     kShadow1,
                   ],
                 ),
@@ -69,7 +69,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         widget.nameTxt,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 15,
                           color: Color(0xff515c6f),
@@ -81,7 +81,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         alignment: Alignment.topLeft,
                         child: Text(
                           widget.typeTxt,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.w300,
                             fontSize: 15,
                             color: Color(0xff515c6f),
@@ -94,7 +94,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         alignment: Alignment.topLeft,
                         child: Text(
                           '\$${widget.priceTxt}',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 15,
                             color: Color(0xffff6969),
@@ -117,9 +117,9 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                             height: 18,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(9),
-                              color: Color(0xff727c8e).withOpacity(0.200),
+                              color: const Color(0xff727c8e).withOpacity(0.200),
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Icon(
                                 Icons.remove,
                                 size: 10,
@@ -132,7 +132,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Text(
                             '${widget.quantity}',
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 15, color: Color(0xff727c8e)),
                           ),
                         ),
@@ -149,9 +149,9 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                             height: 18,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(9),
-                              color: Color(0xff727c8e).withOpacity(0.200),
+                              color: const Color(0xff727c8e).withOpacity(0.200),
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Icon(
                                 Icons.add,
                                 size: 10,
@@ -174,8 +174,8 @@ class _CartItemWidgetState extends State<CartItemWidget> {
             width: 24,
             height: 24,
             alignment: Alignment.center,
-            margin: EdgeInsets.only(right: 10, top: 8),
-            decoration: BoxDecoration(
+            margin: const EdgeInsets.only(right: 10, top: 8),
+            decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(4)),
                 color: kPrimaryColor),
             child: GestureDetector(
@@ -186,7 +186,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         itemId: widget.itemId,
                         cart: widget.cartData);
               },
-              child: Icon(
+              child: const Icon(
                 Icons.close,
                 color: Colors.white,
                 size: 20,

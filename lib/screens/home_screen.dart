@@ -20,8 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> widgetOptions = [
-    PartHomeScreen(),
-    ProfileScreen(),
+    const PartHomeScreen(),
+    const ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -30,17 +30,12 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        actions: [
+        actions: const [
           IconBadgeWidget(
             txt: '7',
             con: Icons.shopping_cart_outlined,
             fl: false,
           ),
-          // IconBadgeWidget(
-          //   txt: '10',
-          //   con: Icons.notifications_none_outlined,
-          //   fl: false,
-          // ),
         ],
       ),
       body: widgetOptions.elementAt(currentIndex),
@@ -49,26 +44,26 @@ class _HomeScreenState extends State<HomeScreen> {
           currentIndex: currentIndex,
           selectedItemColor: kPrimaryColor,
           unselectedItemColor: kSecondaryColor,
-          selectedIconTheme: IconThemeData(
+          selectedIconTheme: const IconThemeData(
             // color: Color(0xffff6969),
             size: 20,
           ),
-          unselectedIconTheme: IconThemeData(
+          unselectedIconTheme: const IconThemeData(
             // color: Color(0xff515c6f),
             size: 15,
           ),
-          selectedLabelStyle: TextStyle(
+          selectedLabelStyle: const TextStyle(
             fontSize: 11,
             // color: Color(0xffff6969),
             letterSpacing: 0,
           ),
-          unselectedLabelStyle: TextStyle(
+          unselectedLabelStyle: const TextStyle(
             fontSize: 11,
             letterSpacing: 0,
             // color: Color(0xff727c8e),
           ),
           backgroundColor: kWhiteColor,
-          items: <BottomNavigationBarItem>[
+          items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home_outlined,

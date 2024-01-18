@@ -17,7 +17,7 @@ class AllProductsScreen extends StatelessWidget {
         // crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
+          const Row(
             children: [
               Center(
                 child: Text(
@@ -38,7 +38,7 @@ class AllProductsScreen extends StatelessWidget {
                     );
                   } else if (snapshot.connectionState == ConnectionState.done) {
                     if (snapshot.hasError) {
-                      return Text('Error While Get Data');
+                      return const Text('Error While Get Data');
                     } else if (snapshot.hasData) {
                       final filteredProducts = snapshot.data!
                           .where((product) => product.categoryId == categoryId)
@@ -68,12 +68,12 @@ class AllProductsScreen extends StatelessWidget {
                                   .toList()),
                         );
                       } else {
-                        return Center(
+                        return const Center(
                           child: Text('No Product Found'),
                         );
                       }
                     } else {
-                      return Text('No Data Found');
+                      return const Text('No Data Found');
                     }
                   } else {
                     return Text(

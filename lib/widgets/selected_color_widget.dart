@@ -40,7 +40,7 @@ class _SelectedColorState extends State<SelectedColor> {
                     color: colorsList[index],
                   ),
                   child: Center(
-                    child: selectedIndex == index ? Icon(Icons.check,color: Colors.white,): null,
+                    child: selectedIndex == index ? const Icon(Icons.check,color: Colors.white,): null,
                   ),
                 ),
               ),

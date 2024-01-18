@@ -25,7 +25,7 @@ class RowCategoriesWidget extends StatelessWidget {
               shadowColor: '0xffe7eaf0'),
           onTap: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => AllCategoriesScreen()));
+                MaterialPageRoute(builder: (context) => const AllCategoriesScreen()));
           },
         ),
       ],

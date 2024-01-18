@@ -26,12 +26,14 @@ class MyOrdersScreen extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 );
               } else if (snapshot.hasError) {
-                return Text('Error While Get Data');
+                return const Text('Error While Get Data');
               } else if (snapshot.hasData) {
                 var data = CartModel.fromJson(
                     Map<String, dynamic>.from(snapshot.data?.data() ?? {}));
                 if (data.items?.isEmpty ?? false) {
-                  return Center(child: Text('No Data Found'));
+                  return Center(
+                      child: Image.network(
+                          'https://cdn.dribbble.com/users/9620200/screenshots/17987839/media/fd60cc8251e50a8c54d3dde620ff9460.jpg?resize=400x300&vertical=center'));
                 } else {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +41,7 @@ class MyOrdersScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             'My orders',
                             style: kHeadLineStyle,
                           ),
@@ -58,12 +60,12 @@ class MyOrdersScreen extends StatelessWidget {
                                 ),
                                 ValueListenableBuilder(
                                   valueListenable:
-                                  Provider.of<CartProvider>(context)
-                                      .totalNotifier,
+                                      Provider.of<CartProvider>(context)
+                                          .totalNotifier,
                                   builder: (context, value, child) {
                                     return Text(
                                       '\$$value',
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
                                         color: kPrimaryColor,
@@ -76,7 +78,7 @@ class MyOrdersScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       ListView.builder(
@@ -85,18 +87,16 @@ class MyOrdersScreen extends StatelessWidget {
                         itemCount: data.items?.length,
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: EdgeInsets.only(bottom: 4.0),
+                            padding: const EdgeInsets.only(bottom: 4.0),
                             child: FutureBuilder(
                               future: Provider.of<ProductsProvider>(context)
                                   .getProductsById(
-                                  productId:
-                                  data.items![index].productId!),
+                                      productId: data.items![index].productId!),
                               builder: (context, snapShot) {
                                 if (snapShot.data != null) {
                                   Provider.of<CartProvider>(context,
-                                      listen: false)
-                                      .onAddProductToList(
-                                      snapShot.data!, data);
+                                          listen: false)
+                                      .onAddProductToList(snapShot.data!, data);
                                   Provider.of<CartProvider>(
                                     context,
                                   ).calculateTotal(data);
@@ -106,11 +106,12 @@ class MyOrdersScreen extends StatelessWidget {
                                       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNgzWAan9TYETCLgNxYmJuUgpDKZgWT4FF84GJyo12bZde672xL0l-gsSaeA&s',
                                   nameTxt: snapShot.data?.name ?? 'no name',
                                   typeTxt:
-                                  'color: ${data.items?[index].selectColor}, size: ${data.items?[index].valueSize}',
-                                  priceTxt: snapShot.data?.price
-                                      .toStringAsFixed(2) ??
-                                      'no price',
-                                  quantity:'quantity: ${data.items?[index].quantity ?? 0}',
+                                      'color: ${data.items?[index].selectColor}, size: ${data.items?[index].valueSize}',
+                                  priceTxt:
+                                      snapShot.data?.price.toStringAsFixed(2) ??
+                                          'no price',
+                                  quantity:
+                                      'quantity: ${data.items?[index].quantity ?? 0}',
                                 );
                               },
                             ),

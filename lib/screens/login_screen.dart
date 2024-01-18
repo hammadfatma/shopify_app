@@ -66,7 +66,7 @@ class _LogInScreenState extends State<LogInScreen> {
                       onTap: value.toggleObscure,
                       obstxt: value.obscureText,
                       controller: value.passController!),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   CustomButtonWidget(
@@ -75,14 +75,14 @@ class _LogInScreenState extends State<LogInScreen> {
                       await value.logIn(context);
                     }, width: 330,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   SizedBox(
                     width: 231,
                     height: 34,
                     child: RichText(
-                      text: TextSpan(
+                      text: const TextSpan(
                         text: 'Don’t have an account? Swipe left to ',
                         style: kStyle1,
                         children: [

@@ -20,9 +20,9 @@ class OrderItemWidget extends StatelessWidget {
           width: 100,
           height: 100,
           decoration: BoxDecoration(
-            color: Color(0xffffffff),
+            color: const Color(0xffffffff),
             borderRadius: BorderRadius.circular(50),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Color(0xffe7eaf0),
                 offset: Offset(0, 10),
@@ -48,7 +48,7 @@ class OrderItemWidget extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: Text(
                   nameTxt,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 15,
                     color: Color(0xff515c6f),
@@ -59,7 +59,7 @@ class OrderItemWidget extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: Text(
                   typeTxt,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w300,
                     fontSize: 15,
                     color: Color(0xff515c6f),
@@ -72,7 +72,7 @@ class OrderItemWidget extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   child: Text(
                     '\$$priceTxt',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 15,
                       color: Color(0xffff6969),
@@ -84,11 +84,11 @@ class OrderItemWidget extends StatelessWidget {
                 children: [
                   Text(
                     quantity,
-                    style: TextStyle(fontSize: 15, color: Color(0xff727c8e)),
+                    style: const TextStyle(fontSize: 15, color: Color(0xff727c8e)),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 width: 222,
                 child: Divider(),
               ),

@@ -34,7 +34,7 @@ class CategoriesCircleWidget extends StatelessWidget {
                   BoxShadow(
                     color: Color(int.parse(category.shadowColor))
                         .withOpacity(0.34),
-                    offset: Offset(0, 10),
+                    offset: const Offset(0, 10),
                     blurRadius: 5,
                     spreadRadius: 2,
                   ),
@@ -46,7 +46,7 @@ class CategoriesCircleWidget extends StatelessWidget {
                   category.imagePath!,
                   width: 38,
                   height: 38,
-                ): Icon(
+                ): const Icon(
                   Icons.arrow_forward_ios_outlined,
                   size: 20,
                   color: kPrimaryColor,
@@ -54,7 +54,7 @@ class CategoriesCircleWidget extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           Text(

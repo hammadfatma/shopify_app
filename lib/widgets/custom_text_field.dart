@@ -31,13 +31,13 @@ class CustomTxtFieldWidget extends StatelessWidget {
       borderRadius = BorderRadius.circular(10);
       boxShadow = kShadow1;
     } else if (isFirst == true) {
-      borderRadius = BorderRadius.only(
+      borderRadius = const BorderRadius.only(
         topLeft: Radius.circular(10),
         topRight: Radius.circular(10),
       );
       boxShadow = kShadow1;
     } else if (isLast == true) {
-      borderRadius = BorderRadius.only(
+      borderRadius = const BorderRadius.only(
         bottomLeft: Radius.circular(10),
         bottomRight: Radius.circular(10),
       );
@@ -47,12 +47,12 @@ class CustomTxtFieldWidget extends StatelessWidget {
       boxShadow = null;
     }
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       width: 325,
       height: 59,
       decoration: BoxDecoration(
         borderRadius: borderRadius,
-        color: Color(0xffffffff),
+        color: const Color(0xffffffff),
         boxShadow: boxShadow != null ? [boxShadow] : null,
       ),
       child: TextFormField(
@@ -69,7 +69,7 @@ class CustomTxtFieldWidget extends StatelessWidget {
             child: Icon(
               con,
               size: 20,
-              color: Color(
+              color: const Color(
                 0xff727c8e,
               ),
             ),

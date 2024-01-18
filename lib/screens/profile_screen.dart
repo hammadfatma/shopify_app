@@ -28,7 +28,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: CircularProgressIndicator(),
               );
             } else if (snapshot.hasError) {
-              return Text('Error While Get Data');
+              return const Text('Error While Get Data');
             } else if (snapshot.hasData) {
               return FutureBuilder(
                   future: Provider.of<ProfileProvider>(context)
@@ -46,7 +46,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 100,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(50),
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       color: Color(0xffe7eaf0),
                                       offset: Offset(0, 10),
@@ -56,7 +56,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ]),
                               child: Center(
                                 child: snapShot.data?.imageUrl == ''
-                                    ? Icon(Icons.person)
+                                    ? const Icon(Icons.person)
                                     : ClipOval(
                                         child: Image.network(
                                           snapShot.data?.imageUrl ??
@@ -76,13 +76,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Text(
                                     FirebaseAuth.instance.currentUser?.email ??
                                         '',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.w500,
                                       fontSize: 15,
                                       color: Color(0xff515c6f),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
                                   GestureDetector(
@@ -91,7 +91,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  EditProfileScreen()));
+                                                  const EditProfileScreen()));
                                     },
                                     child: Container(
                                       width: 121,
@@ -100,8 +100,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           borderRadius:
                                               BorderRadius.circular(15),
                                           border: Border.all(
-                                              color: Color(0xff727c8e))),
-                                      child: Center(
+                                              color: const Color(0xff727c8e))),
+                                      child: const Center(
                                         child: Text(
                                           'EDIT PROFILE',
                                           style: TextStyle(
@@ -118,7 +118,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Column(
@@ -127,7 +127,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Text(
+                                const Text(
                                   'Name: ',
                                   style: TextStyle(
                                     fontSize: 15,
@@ -137,7 +137,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                                 Text(
                                   snapShot.data?.name ?? '',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 30,
                                     color: Color(0xff515c6f),
@@ -148,7 +148,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Text(
+                                const Text(
                                   'Phone: ',
                                   style: TextStyle(
                                     fontSize: 15,
@@ -158,7 +158,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                                 Text(
                                   snapShot.data?.phone ?? '',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 30,
                                     color: Color(0xff515c6f),
@@ -168,7 +168,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
                         CustomButtonWidget(

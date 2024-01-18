@@ -27,17 +27,17 @@ class OrderPlacedScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(51),
                   color: kWhiteColor,
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.check_rounded,
                   size: 40,
                   color: kPrimaryColor,
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Text(
-                'Oreder Placed!',
+                'Order Placed!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
@@ -46,8 +46,8 @@ class OrderPlacedScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: SizedBox(
                 width: 252,
                 height: 65,
@@ -69,7 +69,7 @@ class OrderPlacedScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => MyOrdersScreen()));
+                            builder: (context) => const MyOrdersScreen()));
                   },
                   width: 165),
             ),

@@ -31,7 +31,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             child: Center(
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 297,
                     height: 61,
                     child: Text(
@@ -40,7 +40,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       style: kStyle1,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   CustomTxtFieldWidget(
@@ -58,7 +58,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         return null;
                       },
                       controller: value.emailController!),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   CustomButtonWidget(
