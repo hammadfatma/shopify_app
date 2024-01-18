@@ -20,6 +20,34 @@ class CartProvider {
     }
   }
 
+  // this function that used instead of previous when i need also check quantity of product in it
+  // Future<void> onAddProductToList(BuildContext context,ProductsModel product, CartModel cart) async {
+  //   var index = products.indexWhere((element) => (element.id == product.id));
+  //   int productQuantity = product.quantity ?? 0;
+  //   if (cart.items != null) {
+  //     for (var item in cart.items!) {
+  //       if (item.productId == product.id) {
+  //         productQuantity -= item.quantity ?? 0;
+  //         break;
+  //       }
+  //     }
+  //   }
+  //   if (productQuantity>0) {
+  //     if (index == -1) {
+  //       products.add(product);
+  //     }
+  //   }else{
+  //     if (context.mounted) {
+  //       await QuickAlert.show(
+  //         context: context,
+  //         type: QuickAlertType.error,
+  //         title: 'Oops...',
+  //         text: 'Sorry, this product is out of stock.',
+  //       );
+  //     }
+  //   }
+  // }
+
   void calculateTotal(CartModel cart) {
     _total = 0;
     for (var item in cart.items!) {
