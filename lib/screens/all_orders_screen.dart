@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopify_app/screens/order_tracker_screen.dart';
 import 'package:shopify_app/widgets/custom_appbar_widget.dart';
+import 'package:shopify_app/widgets/custom_button_icon.dart';
 import 'package:shopify_app/widgets/order_item_widget.dart';
 import '../models/cart_model.dart';
 import '../providers/cart_provider.dart';
@@ -122,6 +124,14 @@ class MyOrdersScreen extends StatelessWidget {
                         width: MediaQuery.of(context).size.width,
                         height: 100,
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          CustomButtonWidget(txt: 'ORDER TRACKER', onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const OrderTrackerScreen()));
+                          }, width: 170),
+                        ],
+                      )
                     ],
                   );
                 }
